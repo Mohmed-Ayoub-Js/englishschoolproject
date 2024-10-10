@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face {
+  font-family: 'Caveat';
+  src: url('/Nunito-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+*{
+  font-family: 'Caveat', sans-serif;
+}
+
+.cursor-trail {
+  position: absolute; /* موضع مطلق */
+  width: 20px; /* حجم الدائرة الكبيرة */
+  height: 20px; /* حجم الدائرة الكبيرة */
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8); /* لون الدائرة الكبيرة */
+  pointer-events: none; /* تمنع تفاعل المؤشر */
+  transform: translate(-50%, -50%); /* مركز الدائرة الكبيرة */
+  transition: transform 0.1s ease; /* تأثير الحركة */
+  z-index: 9999; /* تأكد من أن الدائرة الكبيرة فوق كل شيء */
+}
+
+.cursor-dot {
+  position: absolute; /* موضع مطلق */
+  width: 10px; /* حجم الدائرة الصغيرة */
+  height: 10px; /* حجم الدائرة الصغيرة */
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5); /* لون الدوائر الصغيرة */
+  pointer-events: none; /* تمنع تفاعل المؤشر */
+  transition: transform 0.5s ease; /* تأثير الحركة للدوائر الصغيرة */
+  z-index: 9998; /* تأكد من أن الدائرة الصغيرة أقل من الدائرة الكبيرة */
+}
+
+
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
